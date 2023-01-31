@@ -16,9 +16,6 @@ class StoreController extends Controller
 
         $category = Category::firstOrCreate($data);
 
-
         return response(['status' => true, 'category' => $category]);
-
-
     }
 }

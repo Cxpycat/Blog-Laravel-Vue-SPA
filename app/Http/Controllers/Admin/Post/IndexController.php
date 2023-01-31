@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\StoreRequest;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\Post\PostResource;
+use App\Models\Post;
+
 
 class IndexController extends Controller
 {
-    public function __invoke(StoreRequest $request)
+    public function __invoke()
     {
-        return view('admin.post.index');
+        $data = Post::all();
+
+        return response(PostResource::collection($data));
     }
 }

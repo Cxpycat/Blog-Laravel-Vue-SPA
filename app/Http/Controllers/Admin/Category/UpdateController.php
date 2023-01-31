@@ -18,6 +18,7 @@ class UpdateController extends Controller
 
         $category->update($data);
 
+
         return response(['status' => true, 'data' => $category]);
     }
 }

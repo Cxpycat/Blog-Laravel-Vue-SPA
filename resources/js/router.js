@@ -54,6 +54,27 @@ const routes = [
         name: "admin.category.edit",
     },
     {
+        path: "/admin/posts",
+        component: () => import("./components/Admin/Post/IndexPost.vue"),
+        name: "admin.post.index",
+    },
+    {
+        path: "/admin/post/create",
+        component: () => import("./components/Admin/Post/CreatePost.vue"),
+        name: "admin.post.create",
+    },
+    {
+        path: "/admin/post/:id/show",
+        component: () => import("./components/Admin/Post/ShowPost.vue"),
+        name: "admin.post.show",
+    },
+    {
+        path: "/admin/post/:id/edit",
+        component: () => import("./components/Admin/Post/EditPost.vue"),
+        name: "admin.post.edit",
+    },
+
+    {
         path: '/:pathMatch(.*)*',
         component: () => import("./components/Index.vue"),
         name: "404",

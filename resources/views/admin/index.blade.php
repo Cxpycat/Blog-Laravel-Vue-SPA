@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-<index></index>
+    <index></index>
 @endsection

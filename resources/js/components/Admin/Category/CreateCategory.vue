@@ -13,27 +13,27 @@
 </template>
 
 <script>
-    export default {
-        name: "CreateCategory", data() {
-            return {
-                title: null
-            }
-        },
-        methods: {
-            storeCategory() {
-                axios.post('http://127.0.0.1:8000/api/admin/category', {
-                    title: this.title
-                }).then(res => {
-                    this.title = null
-                    alert('Категория добавлена')
-                }).catch(err => {
-                    alert('Ошибка')
-                    console.log(err)
-                })
+export default {
+    name: "CreateCategory", data() {
+        return {
+            title: null
+        }
+    },
+    methods: {
+        storeCategory() {
+            axios.post('http://127.0.0.1:8000/api/admin/category', {
+                title: this.title
+            }).then(res => {
+                this.title = null
+                this.$router.push({name: 'admin.category.index'})
+            }).catch(err => {
+                alert('Ошибка')
+                console.log(err)
+            })
 
-            }
         }
     }
+}
 </script>
 
 <style scoped>

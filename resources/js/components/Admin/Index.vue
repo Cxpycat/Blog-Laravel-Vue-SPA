@@ -1,11 +1,12 @@
 <template>
-   INDEX ADMIN PAGE
+    INDEX ADMIN PAGE
+    <router-view></router-view>
 </template>
 
 <script>
-    export default {
-        name: "Index"
-    }
+export default {
+    name: "Index"
+}
 </script>
 
 <style scoped>

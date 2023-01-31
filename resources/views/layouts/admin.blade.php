@@ -1,84 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
-    <link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/jvectormap/jquery-jvectormap.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/owl-carousel-2/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/owl-carousel-2/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }} ">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet"
+          href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('dist/css/adminlte.min.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('plugins/summernote/summernote-bs4.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('plugins/codemirror/codemirror.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/codemirror/theme/monokai.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/simplemde/simplemde.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }} ">
     @vite(['resources/js/app.js'])
     <script src="{{asset('js.app.js')}}"></script>
 </head>
-<body>
-<div class="container-scroller">
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="index.html"><img src="{{asset('assets/images/logo.svg')}}"
-                                                                       alt="logo"/></a>
-            <a class="sidebar-brand brand-logo-mini" href="index.html"><img
-                    src="{{asset('assets/images/logo-mini.svg')}}"
-                    alt="logo"/></a>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60"
+             width="60">
+    </div>
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light ">
+        <!-- Left navbar links -->
+        <div class="col-12 d-flex justify-content-between">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item" style="margin-right: 10px">
+                    <a href="#" class="btn btn-outline-primary">Профиль</a>
+                </li>
+                <li class="nav-item">
+
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <input type="submit" class="btn btn-outline-primary" value="Выйти">
+                    </form>
+                </li>
+
+            </ul>
         </div>
-        <ul class="nav">
-            @include('Admin.includes.sidebar')
-        </ul>
+
     </nav>
+    <!-- /.navbar -->
 
 
-    <div class="container-fluid page-body-wrapper">
-        <nav class="navbar p-0 fixed-top d-flex flex-row">
-            <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                        src="{{asset('assets/images/logo-mini.svg')}}"
-                        alt="logo"/></a>
-            </div>
-            <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                    <span class="mdi mdi-menu"></span>
-                </button>
-
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                        data-toggle="offcanvas">
-                    <span class="mdi mdi-format-line-spacing"></span>
-                </button>
-            </div>
-        </nav>
-
-        <div class="main-panel" id="app">
-
-    <div class="m-5">
-
-    @yield('content')
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link">
+            <img src=" {{ asset('dist/img/AdminLTELogo.png') }} " alt="AdminLTE Logo"
+                 class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">AdminLTE 3</span>
+        </a>
 
 
-    </div>
+        <!-- Sidebar -->
+        <div class="sidebar"></div>
 
+        @include('Admin.includes.sidebar')
+        <!-- /.sidebar -->
+    </aside>
 
+    <!-- Content Wrapper. Contains page content -->
+
+    <div class="content-wrapper">
+        <div id="app">
+            @yield('content')
         </div>
 
     </div>
+    <!-- /.content-wrapper -->
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 </div>
+<!-- ./wrapper -->
 
-<script src="{{asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
-<script src="{{asset('assets/vendors/chart.js/Chart.min.js')}}"></script>
-<script src="{{asset('assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
-<script src="{{asset('assets/vendors/jvectormap/jquery-jvectormap.min.js')}}"></script>
-<script src="{{asset('assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<script src="{{asset('assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.cookie.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/js/off-canvas.js')}}"></script>
-<script src="{{asset('assets/js/hoverable-collapse.js')}}"></script>
-<script src="{{asset('assets/js/misc.js')}}"></script>
-<script src="{{asset('assets/js/settings.js')}}"></script>
-<script src="{{asset('assets/js/todolist.js')}}"></script>
-<script src="{{asset('assets/js/dashboard.js')}}"></script>
+{{--    <script src="{{ asset('plugins/jquery/jquery.min.js') }} "></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+{{--    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }} "></script> --}}
+<script src=" {{ asset('dist/js/adminlte.js') }} "></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="{{ asset('plugins/moment/moment.min.js') }} "></script>
+<script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }} "></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }} "></script>
+{{-- <link rel="stylesheet" href="{{asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}"> --}}
+<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }} "></script>
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+<!-- AdminLTE App -->
+
+<script>
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        });
+    });
+    $(function () {
+        bsCustomFileInput.init();
+    });
+    $('.select2').select2()
+</script>
+<style>
+    .input-group-append {
+        cursor: pointer;
+    }
+
+    .custom-file-input:lang(en) ~ .custom-file-label::after {
+        content: "...";
+        cursor: pointer;
+    }
+</style>
+
 </body>
+
 </html>
+

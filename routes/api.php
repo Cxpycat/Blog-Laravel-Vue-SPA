@@ -36,6 +36,10 @@ Route::group(['namespace' => 'App\Http\Controllers\User', 'prefix' => 'users'], 
     Route::post('/users', 'StoreController');
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Image', 'prefix' => 'image'], function () {
+    Route::post('/', 'StoreController');
+});
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
     Route::group(['namespace' => 'Category', 'prefix' => 'category'], function () {
         Route::get('/', 'IndexController');
@@ -44,7 +48,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::patch('/{category}', 'UpdateController');
         Route::delete('/{category}', 'DeleteController');
     });
-
+    Route::group(['namespace' => 'Post', 'prefix' => 'post'], function () {
+        Route::get('/', 'IndexController');
+        Route::get('/{post}', 'ShowController');
+        Route::post('/', 'StoreController');
+        Route::patch('/{post}', 'UpdateController');
+        Route::delete('/{post}', 'DeleteController');
+    });
 });
 
 
