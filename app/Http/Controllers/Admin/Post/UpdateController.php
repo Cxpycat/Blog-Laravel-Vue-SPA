@@ -24,9 +24,9 @@ class UpdateController extends Controller
         unset($data['imageIdForDelete']);
         if ($images) {
             foreach ($images as $image) {
-                $name = Carbon::now()->format('d_m_y_H_i_s').'_'.Str::random(15).$image->getClientOriginalName();
+                $name = Carbon::now()->format('d_m_y_H_i_s') . '_' . Str::random(15) . $image->getClientOriginalName();
                 $filePath = Storage::disk('public')->putFileAs('/images', $image, $name);
-                $data['image'] = url('/storage/'.$filePath);
+                $data['image'] = url('/storage/' . $filePath);
             }
         }
         $post->update($data);

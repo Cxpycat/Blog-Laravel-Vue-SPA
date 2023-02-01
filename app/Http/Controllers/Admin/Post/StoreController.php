@@ -19,14 +19,14 @@ class StoreController extends Controller
         unset($data['image']);
 
         foreach ($images as $image) {
-            $name = Carbon::now()->format('d_m_y_H_i_s').'_'.Str::random(15).$image->getClientOriginalName();
+            $name = Carbon::now()->format('d_m_y_H_i_s') . '_' . Str::random(15) . $image->getClientOriginalName();
             $filePath = Storage::disk('public')->putFileAs('/images', $image, $name);
         }
         $post = Post::create([
             'title' => $data['title'],
             'content' => $data['content'],
             'category_id' => $data['category_id'],
-            'image' => url('/storage/'.$filePath),
+            'image' => url('/storage/' . $filePath),
         ]);
 
 

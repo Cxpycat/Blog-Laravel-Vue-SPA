@@ -12,7 +12,7 @@ class Category extends Model
     protected $guarded = false;
     protected $table = 'categories';
 
-    public function category_id()
+    public function category_name()
     {
         return $this->belongsTo(Post::all(), 'category_id', 'id');
     }

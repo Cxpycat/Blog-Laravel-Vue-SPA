@@ -16,10 +16,10 @@ class StoreController extends Controller
         $data = $request->validated();
 
         $image = $data['image'];
-        $name = Carbon::now()->format('d_m_y_H_i_s').'_'.Str::random(30).$image->getClientOriginalName();
+        $name = Carbon::now()->format('d_m_y_H_i_s') . '_' . Str::random(30) . $image->getClientOriginalName();
         $filePath = Storage::disk('public')->putFileAs('/images/content', $image, $name);
 
 
-        return response(['url' => url('/storage/'.$filePath)]);
+        return response(['url' => url('/storage/' . $filePath)]);
     }
 }

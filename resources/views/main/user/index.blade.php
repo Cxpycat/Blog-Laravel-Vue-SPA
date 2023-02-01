@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('content')
-   USER PAGE
+    USER PAGE
 @endsection

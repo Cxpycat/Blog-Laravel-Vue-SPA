@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'email' => 'string|required',
             'password' => 'string|required|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'string|required',
+            'avatar' => 'array'
         ];
     }
 }

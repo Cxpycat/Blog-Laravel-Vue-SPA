@@ -7,8 +7,7 @@
 
         <div class="p-3">
             <label for="title">Название статьи</label>
-            <input type="text" id="title" class="form-control" placeholder="Название статьи"
-                   v-model="title" disabled>
+            <input type="text" id="title" class="form-control" placeholder="Название статьи" v-model="title" disabled>
         </div>
         <div class="p-3">
             <label for="title">Контент</label>
@@ -16,8 +15,7 @@
         </div>
         <div class="p-3">
             <label for="title">Категория</label>
-            <input type="text" id="title" class="form-control" placeholder="Контент" v-model="category_id"
-                   disabled>
+            <input type="text" id="title" class="form-control" placeholder="Контент" v-model="category_id" disabled>
         </div>
     </div>
 
@@ -27,7 +25,7 @@
 </template>
 
 <script>
-import {Dropzone} from "dropzone";
+import { Dropzone } from "dropzone";
 
 export default {
     name: "IndexCategory",
@@ -60,7 +58,7 @@ export default {
         deleteCategory(id) {
             axios.delete(`http://127.0.0.1:8000/api/admin/category/${id}`).then(res => {
                 console.log(res)
-                this.$router.push({name: 'admin.category.index'})
+                this.$router.push({ name: 'admin.category.index' })
             })
         }
 
@@ -73,5 +71,4 @@ td i {
     margin: 5px;
     cursor: pointer;
 }
-
 </style>

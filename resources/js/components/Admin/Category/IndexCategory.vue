@@ -7,26 +7,26 @@
         <div class="card-body table-responsive p-0">
             <table class="table table-hover text-nowrap">
                 <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Название</th>
-                    <th>Действия</th>
-                </tr>
+                    <tr>
+                        <th>id</th>
+                        <th>Название</th>
+                        <th>Действия</th>
+                    </tr>
                 </thead>
                 <tbody v-if="categories">
-                <tr v-for="category in categories">
-                    <td>{{ category.id }}</td>
-                    <td>{{ category.title }}</td>
-                    <td>
-                        <router-link :to="{name: 'admin.category.show', params: {id:category.id}}" class="text-success">
-                            <i
-                                class="fas fa-eye"></i></router-link>
-                        <router-link :to="{name: 'admin.category.edit', params: {id:category.id}}"><i
-                            class="fas fa-pen"></i></router-link>
-                        <a @click.prevent="deleteCategory(category.id)" class="text-danger"> <i
-                            class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
+                    <tr v-for="category in categories">
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.title }}</td>
+                        <td>
+                            <router-link :to="{ name: 'admin.category.show', params: { id: category.id } }"
+                                class="text-success">
+                                <i class="fas fa-eye"></i></router-link>
+                            <router-link :to="{ name: 'admin.category.edit', params: { id: category.id } }"><i
+                                    class="fas fas fa-pencil-alt"></i></router-link>
+                            <a @click.prevent="deleteCategory(category.id)" class="text-danger"> <i
+                                    class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
                 </tbody>
 
 
@@ -76,5 +76,4 @@ td i {
     margin: 5px;
     cursor: pointer;
 }
-
 </style>

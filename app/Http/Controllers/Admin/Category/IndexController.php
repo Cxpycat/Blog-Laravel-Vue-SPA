@@ -13,6 +13,5 @@ class IndexController extends Controller
     {
         $data = Category::all();
         return response(CategoryResource::collection($data));
-
     }
 }

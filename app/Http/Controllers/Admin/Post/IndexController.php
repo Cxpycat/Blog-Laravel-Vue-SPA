@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\Resource;
 use App\Models\Post;
 
 

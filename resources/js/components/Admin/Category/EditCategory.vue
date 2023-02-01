@@ -32,7 +32,7 @@ export default {
             axios.patch(`http://127.0.0.1:8000/api/admin/category/${this.$route.params.id}`, {
                 title: this.title
             }).then(res => {
-                this.$router.push({name: 'admin.category.index'})
+                this.$router.push({ name: 'admin.category.index' })
             })
         }
     }

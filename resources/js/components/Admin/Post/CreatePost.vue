@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import {Dropzone} from "dropzone";
-import {VueEditor} from "vue3-editor";
+import { Dropzone } from "dropzone";
+import { VueEditor } from "vue3-editor";
 
 export default {
-    components: {VueEditor},
+    components: { VueEditor },
     name: "CreatePost", data() {
         return {
             title: null,
@@ -65,7 +65,7 @@ export default {
             this.title = ''
             this.content = ''
             axios.post('http://127.0.0.1:8000/api/admin/post', data).then(res => {
-                this.$router.push({name: 'admin.post.index'});
+                this.$router.push({ name: 'admin.post.index' });
             }).catch(err => {
                 console.log(err)
             })

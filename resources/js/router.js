@@ -1,4 +1,4 @@
-import {createWebHistory, createRouter} from 'vue-router';
+import { createWebHistory, createRouter } from "vue-router";
 
 // import {createWebHistory, createRouter} from "vue-router";
 
@@ -19,6 +19,12 @@ const routes = [
         name: "user.login",
     },
     {
+        path: "/post/:id/show",
+        component: () => import("./components/Main/Post/ShowPost.vue"),
+        name: "post.show",
+    },
+
+    {
         path: "/registration",
         component: () => import("./components/User/Registration.vue"),
         name: "user.registration",
@@ -35,12 +41,14 @@ const routes = [
     },
     {
         path: "/admin/categories",
-        component: () => import("./components/Admin/Category/IndexCategory.vue"),
+        component: () =>
+            import("./components/Admin/Category/IndexCategory.vue"),
         name: "admin.category.index",
     },
     {
         path: "/admin/category/create",
-        component: () => import("./components/Admin/Category/CreateCategory.vue"),
+        component: () =>
+            import("./components/Admin/Category/CreateCategory.vue"),
         name: "admin.category.create",
     },
     {
@@ -75,12 +83,12 @@ const routes = [
     },
 
     {
-        path: '/:pathMatch(.*)*',
+        path: "/:pathMatch(.*)*",
         component: () => import("./components/Index.vue"),
         name: "404",
     },
     {
-        path: '/user-:afterUser(.*)',
+        path: "/user-:afterUser(.*)",
         component: () => import("./components/Index.vue"),
     },
 ];
@@ -88,9 +96,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes: routes,
-
 });
-
 
 // router.beforeEach((to, from, next) => {
 //     const access_token = localStorage.getItem('access_token');

@@ -21,9 +21,9 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth', 'namespace' => 'App\Htt
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 
-//    Route::group(['namespace' => 'Fruit', 'prefix' => 'fruits'], function () {
-//        Route::get('/fruits', 'IndexController');
-//    });
+    //    Route::group(['namespace' => 'Fruit', 'prefix' => 'fruits'], function () {
+    //        Route::get('/fruits', 'IndexController');
+    //    });
 });
 
 
@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'App\Http\Controllers\User', 'prefix' => 'users'], function () {
     Route::post('/users', 'StoreController');
+    Route::patch('/user/{user}', 'UpdateController');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Image', 'prefix' => 'image'], function () {
@@ -56,5 +57,3 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::delete('/{post}', 'DeleteController');
     });
 });
-
-

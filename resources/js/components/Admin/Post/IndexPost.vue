@@ -7,29 +7,29 @@
         <div class="card-body table-responsive p-0">
             <table class="table table-hover text-nowrap">
                 <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Превью</th>
-                    <th>Название</th>
-                    <th>Контент</th>
-                    <th>Категория</th>
-                    <th>Действия</th>
-                </tr>
+                    <tr>
+                        <th>id</th>
+                        <th>Превью</th>
+                        <th>Название</th>
+                        <th>Контент</th>
+                        <th>Категория</th>
+                        <th>Действия</th>
+                    </tr>
                 </thead>
                 <tbody v-if="posts">
-                <tr v-for="post in posts">
-                    <td>{{ post.id }}</td>
-                    <td><img :src=" post.image" style="width: 100px"></td>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.content }}</td>
-                    <td>{{ post.category_id }}</td>
-                    <td>
-                        <router-link :to="{name: 'admin.post.edit', params: {id:post.id}}"><i
-                            class="fas fa-pen"></i></router-link>
-                        <a @click.prevent="deletePost(post.id)" class="text-danger"> <i
-                            class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
+                    <tr v-for="post in posts">
+                        <td>{{ post.id }}</td>
+                        <td><img :src="post.image" style="width: 100px"></td>
+                        <td class="td_overflow_hidden">{{ post.title }}</td>
+                        <td class="td_overflow_hidden">{{ post.content }}</td>
+                        <td>{{ post.category_name.title }}</td>
+                        <td>
+                            <router-link :to="{ name: 'admin.post.edit', params: { id: post.id } }"><i
+                                    class="fas fa-pencil-alt"></i></router-link>
+                            <a @click.prevent="deletePost(post.id)" class="text-danger"> <i
+                                    class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
                 </tbody>
 
 
@@ -39,7 +39,7 @@
     </div>
 
     <div>
-        <router-link :to="{name: 'admin.post.create'}" class="btn btn-primary btn-fw m-5">Добавить</router-link>
+        <router-link :to="{ name: 'admin.post.create' }" class="btn btn-primary btn-fw m-5">Добавить</router-link>
     </div>
 </template>
 
@@ -105,4 +105,8 @@ td i {
     cursor: pointer;
 }
 
+.td_overflow_hidden {
+    max-width: 200px;
+    overflow: hidden;
+}
 </style>

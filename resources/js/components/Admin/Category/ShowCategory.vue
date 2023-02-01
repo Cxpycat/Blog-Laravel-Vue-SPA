@@ -7,23 +7,23 @@
         <div class="card-body table-responsive p-0">
             <table class="table table-hover text-nowrap">
                 <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Название</th>
-                    <th>Действия</th>
-                </tr>
+                    <tr>
+                        <th>id</th>
+                        <th>Название</th>
+                        <th>Действия</th>
+                    </tr>
                 </thead>
                 <tbody v-if="category">
-                <tr>
-                    <td>{{ category.id }}</td>
-                    <td>{{ category.title }}</td>
-                    <td>
-                        <router-link :to="{name: 'admin.category.edit', params: {id:category.id}}"><i
-                            class="fas fa-pen"></i></router-link>
-                        <a @click.prevent="deleteCategory(category.id)" class="text-danger"> <i
-                            class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ category.id }}</td>
+                        <td>{{ category.title }}</td>
+                        <td>
+                            <router-link :to="{ name: 'admin.category.edit', params: { id: category.id } }"><i
+                                    class="fas fas fa-pencil-alt"></i></router-link>
+                            <a @click.prevent="deleteCategory(category.id)" class="text-danger"> <i
+                                    class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -51,7 +51,7 @@ export default {
         deleteCategory(id) {
             axios.delete(`http://127.0.0.1:8000/api/admin/category/${id}`).then(res => {
                 console.log(res)
-                this.$router.push({name: 'admin.category.index'})
+                this.$router.push({ name: 'admin.category.index' })
             })
         }
 
@@ -64,5 +64,4 @@ td i {
     margin: 5px;
     cursor: pointer;
 }
-
 </style>

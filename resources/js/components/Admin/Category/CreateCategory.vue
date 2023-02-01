@@ -25,7 +25,7 @@ export default {
                 title: this.title
             }).then(res => {
                 this.title = null
-                this.$router.push({name: 'admin.category.index'})
+                this.$router.push({ name: 'admin.category.index' })
             }).catch(err => {
                 alert('Ошибка')
                 console.log(err)

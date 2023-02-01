@@ -8,6 +8,6 @@ class AdminController extends Controller
 {
     public function __invoke()
     {
-            return view('admin.index');
+        return view('admin.index');
     }
 }
