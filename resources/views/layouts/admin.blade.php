@@ -7,7 +7,7 @@
     <title>Admin</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }} ">
+    {{--    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }} ">--}}
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href=" {{ asset('dist/css/adminlte.min.css') }} ">
 
